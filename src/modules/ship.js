@@ -1,4 +1,4 @@
-export default function Ship (size) {
+export default function Ship (size = 1) {
     let length = size;
     let sunked = false;
     let hits = 0;
