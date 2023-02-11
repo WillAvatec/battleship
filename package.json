@@ -4,6 +4,7 @@
   "description": "Development of a battleship game with graphic interface",
   "main": "index.js",
   "private": "true",
+  "type": "module",
   "scripts": {
     "guard": "webpack --watch",
     "test": "jest --watch --verbose"
