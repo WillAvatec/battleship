@@ -56,4 +56,11 @@ describe('testing setShip method',()=>{
         let coord = [-50,-10]
         expect(mapa.setShip(boat,coord)).toBe('invalid coordinates')
     })
+
+    it('should return invalid if place is occupied',()=>{
+        coord = [1,1];
+        mapa.setShip(boat, coord);
+        boat = new Ship(3);
+        expect(mapa.setShip(boat,[0,1])).toBe('invalid coordinates')
+    })
 })
