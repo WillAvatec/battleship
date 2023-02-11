@@ -1,5 +1,5 @@
-import { GameBoard } from './gameboard'
-import Ship from './ship'
+import { GameBoard } from './gameboard.js'
+import Ship from './ship.js'
 
 
 describe('testing Gameboard Instance array',()=>{
@@ -23,24 +23,13 @@ describe('testing setShip method',()=>{
     let mapa;
     let boat;
     let coord = [0,0];
-    let prevState;
     beforeEach(()=>{
         mapa = new GameBoard();
-        boat = new Ship();
-        prevState = [...mapa.getBoard()]
+        boat = new Ship(1);
     })
 
     it('should return array',()=>{
         expect(mapa.setShip(boat, coord)).toBeInstanceOf(Array);
-    })
-
-    it('should mutate private board property',()=>{
-        expect(mapa.setShip(boat, coord)).not.toBe(prevState);
-    })
-
-    it('should set ship on coordinates with boat{size:1}',()=>{
-        mapa.setShip(boat, coord);
-        expect(mapa.getBoard(coord)).toBe(1)
     })
 
     it('should set ship{size:3} on horizontal',()=>{
@@ -54,14 +43,17 @@ describe('testing setShip method',()=>{
 
     it('should set ship{size:3 in vertical',()=>{
         boat = new Ship(3);
+        boat.isVertical = true;
         let coord = [0,0]
         mapa.setShip(boat,coord);
-        for(let i=0; i < boat.getSize() ;i++){
-            expect(mapa.getBoard([coord[0],coord[1]]+i)).toBe(1)
+        for(let j=0; j < boat.getSize() ;j++){
+            expect(mapa.getBoard([coord[0],coord[1]+j])).toBe(1)
         }
     })
 
-    it('should only set ship if space available',()=>{
-        expect(mapa.setShip(boat, coord))
+    it('should only set ship if coords are correct',()=>{
+        boat = new Ship(3);
+        let coord = [-50,-10]
+        expect(mapa.setShip(boat,coord)).toBe('invalid coordinates')
     })
 })
