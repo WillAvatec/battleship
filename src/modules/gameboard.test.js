@@ -37,7 +37,7 @@ describe('testing setShip method',()=>{
         let coord = [0,0]
         mapa.setShip(boat,coord);
         for(let i=0; i < boat.getSize() ;i++){
-            expect(mapa.getBoard([coord[0]+i,coord[1]])).toBe(1)
+            expect(mapa.getBoard([coord[0],coord[1]+i])).toBe(1)
         }
     })
 
@@ -47,7 +47,7 @@ describe('testing setShip method',()=>{
         let coord = [0,0]
         mapa.setShip(boat,coord);
         for(let j=0; j < boat.getSize() ;j++){
-            expect(mapa.getBoard([coord[0],coord[1]+j])).toBe(1)
+            expect(mapa.getBoard([coord[0]+j,coord[1]])).toBe(1)
         }
     })
 
@@ -58,9 +58,7 @@ describe('testing setShip method',()=>{
     })
 
     it('should return invalid if place is occupied',()=>{
-        coord = [1,1];
-        mapa.setShip(boat, coord);
-        boat = new Ship(3);
-        expect(mapa.setShip(boat,[0,1])).toBe('invalid coordinates')
+        mapa.setShip(new Ship(3), coord);
+        expect(mapa.setShip(new Ship(3),[0,2])).toBe('invalid coordinates')
     })
 })
