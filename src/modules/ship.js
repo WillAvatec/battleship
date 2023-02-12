@@ -11,8 +11,8 @@ export default function Ship (size = 1) {
         return length;
     }
     function isSunk(){
-        if(hits >= length) sunked = true;
-        return sunked;
+        hits >= length ? sunked = true : sunked = false;
+        return {sunked,hits};
     }
     return {
         isSunk,
