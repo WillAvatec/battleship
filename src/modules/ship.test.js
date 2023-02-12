@@ -18,12 +18,12 @@ describe('BattleShip object',()=>{
     })
 
     test('isSunk method to return false by default', ()=>{
-        expect(boat.isSunk()).toBe(false)
+        expect(boat.isSunk()).toHaveProperty('sunked',false);
     })
 
     it('should return true if hits is >= length',()=>{
         boat.hit();
         boat.hit();
-        expect(boat.isSunk()).toBe(true);
+        expect(boat.isSunk()).toHaveProperty('sunked',true);
     })
 })
