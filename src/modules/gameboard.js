@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import isAvailable from './checkAvailable.js';
 
 export default function GameBoard(boardSize = 10) {

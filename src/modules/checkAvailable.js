@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 export default function isAvailable(coord, s, b) {
   const [x, y] = coord;
   const vert = s.isVertical;
