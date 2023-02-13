@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Development of a battleship game with graphic interface",
   "main": "index.js",
-  "private": "true",
   "type": "module",
+  "private": "true",
   "scripts": {
     "guard": "webpack --watch",
-    "test": "jest --watch --verbose"
+    "test": "jest --watch --verbose",
+    "linter": "init @eslint/config"
   },
   "keywords": [
     "battleship"
@@ -16,7 +17,9 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
-    "eslint": "^8.33.0",
+    "eslint": "^8.34.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-webpack-plugin": "^4.0.0",
     "jest": "^29.4.2",
     "webpack": "^5.75.0",
