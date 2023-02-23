@@ -89,9 +89,10 @@ h1{
 
 
 .cells:hover:empty {
+    position:relative;
     border: none;
-    transform: scale(1);
+    z-index: 3;
     background-color: #dcfce7;
-    outline: 3px solid #4ade80;
+    outline: 4px solid #4ade80;
     cursor: pointer;
 }
