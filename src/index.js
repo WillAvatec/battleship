@@ -10,12 +10,22 @@ function attackEnemyBoard(cells) {
   cells.forEach((cell) => {
     cell.addEventListener('click', () => {
       // Attack enemy Board
-      player1.attackTo([cell.parentNode.dataset.row, cell.dataset.column, cell], enemyBoard);
+      const element = cell;
+      const value = player1.attackTo(
+        [cell.parentNode.dataset.row,
+          cell.dataset.column,
+          cell],
+        enemyBoard,
+      );
       // Render it on the DOM
+      element.appendChild(document.createTextNode(value));
     });
   });
 }
-enemyBoard.setShip(Ship(3), [0, 0]);
+const ship = Ship(3);
+ship.isVertical = true;
+enemyBoard.setShip(ship, [7, 0]);
+
 initialize();
 
 const enemyBoardCells = document.querySelectorAll('#computer-board .cells');
