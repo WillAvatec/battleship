@@ -9,10 +9,10 @@ function isAvailable(coord, s, b) {
   if (isInsideBoard) {
     for (let i = 0; i < s.getSize(); i += 1) {
       if (vert && !isOccupied) {
-        b[x][y + i] === 1 ? isOccupied = true : isOccupied = false;
+        isOccupied = b[x][y + i] === 1;
       }
       if (!vert && !isOccupied) {
-        b[x + i][y] === 1 ? isOccupied = true : isOccupied = false;
+        isOccupied = b[x + i][y] === 1;
       }
     }
   }
