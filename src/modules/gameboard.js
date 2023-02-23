@@ -76,10 +76,10 @@ export default function GameBoard(boardSize = 10) {
 
   function receiveAttack(coord) {
     const [x, y] = coord;
-    let value = '-';
+    let value = '◦';
     if (board[x][y] === 1) {
       findBoat(coord).hit();
-      value = 'x';
+      value = '☒';
     }
     board[x][y] = value;
 
