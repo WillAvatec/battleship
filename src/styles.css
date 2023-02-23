@@ -75,21 +75,23 @@ h1{
 }
 
 .cells {
-    flex-grow: 1;
+    flex: 1;
     height: 50px;
     background-color: #e8e5e5;
     border: .5px solid rgb(154, 154, 250);
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    font-size: 3rem;
 }
 
 
 
-.cells:hover {
-    transform: scale(1.1);
-    background-color: #f8f89e;
-    border-color: #00f;
+.cells:hover:empty {
+    border: none;
+    transform: scale(1);
+    background-color: #dcfce7;
+    outline: 3px solid #4ade80;
     cursor: pointer;
 }
