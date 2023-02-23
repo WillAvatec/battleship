@@ -51,18 +51,18 @@ export default function GameBoard(boardSize = 10) {
 
   // {start:{x,y},ship}
   function checkBoatPosition(set, coord) {
-    const [x, y] = coord; // 1 - 3
-    const [m, n] = [set.start.x, set.start.y]; // 1 - 1
+    const [row, column] = coord; // 0 - 0
+    const [startX, startY] = [set.start.x, set.start.y]; // 0 - 2 * Ship Starting position
     const length = set.ship.getSize(); // 3
     let result = false;
     for (let i = 0; i < length; i += 1) {
-      if (set.ship.isVertical && m + i === x) {
+      if (set.ship.isVertical && startX + i === +row) {
         result = true;
-        return result;
+        break;
       }
-      if (!set.ship.isVertical && n + i === y) {
+      if (!set.ship.isVertical && startY + i === +column) {
         result = true;
-        return result;
+        break;
       }
     }
     return result;
@@ -70,7 +70,8 @@ export default function GameBoard(boardSize = 10) {
 
   function findBoat(coord) {
     const result = shipPositions.find((ship) => checkBoatPosition(ship, coord));
-    return result.ship;
+    if (result) return result.ship;
+    return false;
   }
 
   function receiveAttack(coord) {
