@@ -79,6 +79,10 @@ h1{
     height: 50px;
     background-color: #e8e5e5;
     border: .5px solid rgb(154, 154, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
 }
 
 

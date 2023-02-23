@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/extensions
-import isAvailable from './checkAvailable.js';
-
 export default function GameBoard(boardSize = 10) {
   const board = new Array(boardSize).fill()
     .map(() => Array(boardSize).fill(null));
@@ -10,6 +7,27 @@ export default function GameBoard(boardSize = 10) {
       return board[coord[0]][coord[1]];
     }
     return board;
+  }
+
+  function isAvailable(coord, s, b) {
+    const [x, y] = coord;
+    const vert = s.isVertical;
+    const max = b.length;
+    let isOccupied = false;
+    const size = s.getSize();
+    const isInsideBoard = ((x >= 0 && x < max) && (y >= 0 && y < max));
+    const couldOverflow = b?.[x + size] === undefined && b?.[x]?.[y + size] === undefined;
+    if (isInsideBoard) {
+      for (let i = 0; i < s.getSize(); i += 1) {
+        if (vert && !isOccupied) {
+          isOccupied = b[x][y + i] === 1;
+        }
+        if (!vert && !isOccupied) {
+          isOccupied = b[x + i][y] === 1;
+        }
+      }
+    }
+    return (isInsideBoard && !isOccupied && !couldOverflow);
   }
 
   function setShip(ship, coord) {

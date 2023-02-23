@@ -7,9 +7,8 @@ export default class Player {
   attackTo(coord, board) {
     const [x, y] = coord;
     if (this.record.find((obj) => obj.row === x && obj.column === y)) return false;
-    board.receiveAttack(coord);
     this.record.push({ row: x, column: y });
-    return true;
+    return board.receiveAttack(coord);
   }
 
   randomAttack(board) {

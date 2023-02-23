@@ -18,6 +18,15 @@ function createCell(columnNumber) {
   cell.dataset.column = columnNumber;
   return cell;
 }
+
+/* function appendListeners(cells) {
+  cells.forEach((cell) => {
+    cell.addEventListener('click', () => {
+      console.log([cell.parentNode().dataset.row, cell.dataset.column]);
+    });
+  });
+} */
+
 // This renders a board in the DOM(Is not related to the GameBoard function yet)
 export default function renderBoard(size, parent) {
   for (let i = 0; i < size; i += 1) {
