@@ -19,7 +19,7 @@ function attackEnemyBoard(cells) {
       );
       // Render it on the DOM
       element.appendChild(document.createTextNode(value));
-    });
+    }, { once: true });
   });
 }
 const ship = Ship(3);
