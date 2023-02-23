@@ -78,7 +78,7 @@ h1{
     flex: 1;
     height: 50px;
     background-color: #e8e5e5;
-    border: .5px solid rgb(154, 154, 250);
+    outline: .5px solid rgb(154, 154, 250);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -88,9 +88,7 @@ h1{
 
 
 
-.cells:hover:empty {
-    position:relative;
-    border: none;
+#computer-board .cells:hover:empty {
     z-index: 3;
     background-color: #dcfce7;
     outline: 4px solid #4ade80;
